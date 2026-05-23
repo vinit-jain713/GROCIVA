@@ -6,7 +6,7 @@ import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <div className='bg-white'>
+    <div className='bg-white fixed top-0 left-0 right-0'>
       <nav className='flex justify-between max-w-[1200px] h-[22vh] px-10 items-center mx-auto'>
         {/* Logo Section */}
         <header>
@@ -52,8 +52,8 @@ const Navbar = () => {
 
         {/* Search Bar and Favourites */}
         <div className='flex items-center gap-x-3'>
-          <div className='flex p-2 border-2 rounded-3xl border-orange-500'>
-            <input type="text" name='text' id='text' placeholder='Search...' autoComplete='off' className='flex h-[10vh] px-3 focus:outline-none' />
+          <div className='flex p-2 border-2 rounded-3xl items-center border-orange-500'>
+            <input type="text" name='text' id='text' placeholder='Search...' autoComplete='off' className='flex h-[3vh] px-3 focus:outline-none' />
             <button className='bg-gradient-to-b from-orange-600 to-orange-400 text-white h-8 w-8 flex justify-center items-center rounded-full text-sm'>
               <IoSearch />
             </button>

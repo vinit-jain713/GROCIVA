@@ -4,11 +4,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import About from '../About/About'
 import Process from '../Process/Process'
 import Contact from '../Contact/Contact'
+import Hero from '../Hero/Hero'
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1></h1>
     </div>
   )
 }
@@ -25,6 +26,7 @@ const Home = () => {
         <Route path='/contact' element={<Contact />} />
       </Routes>
       </div>
+      <Hero />
     </BrowserRouter>
   )
 }
