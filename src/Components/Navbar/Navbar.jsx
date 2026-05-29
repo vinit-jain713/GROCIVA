@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GoHeartFill } from "react-icons/go";
 import { RiShoppingBasketFill } from "react-icons/ri";
@@ -9,14 +9,25 @@ import { CgMenuMotion } from "react-icons/cg";
 const Navbar = () => {
 
   const [Showmenu, SetShowmenu] = useState(false);
+  const [isScroll, SetisScroll] = useState(false);
 
   const toggleMenu = () =>{
 
     SetShowmenu(!Showmenu);
   }
 
+  useEffect(()=>{
+
+    const handleScroll = ()=>{
+      SetisScroll(window.scrollY > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return ()=> window.removeEventListener('scroll', handleScroll);
+
+  },[])
   return (
-    <div className='bg-white fixed top-0 left-0 right-0'>
+    <div className={`bg-white fixed top-0 left-0 right-0 ${isScroll ? 'shadow-xl' : ''}`}>
       <nav className='flex justify-between max-w-[1200px] md:h-[22vh] h-[10vh] px-10 items-center mx-auto'>
         {/* Logo Section */}
         <header>
@@ -39,8 +50,8 @@ const Navbar = () => {
           </ul>
           <ul>
             <li>
-              <NavLink to="/about" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                About
+              <NavLink to="/category" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+                Category
               </NavLink>
             </li>
           </ul>
@@ -81,7 +92,7 @@ const Navbar = () => {
 
         {/* Mobile Nav */}
 
-          <ul className={`flex flex-col absolute items-center gap-16 bg-orange-300/30 backdrop-blur-xl rounded-2xl p-10 font-semibold tracking-wider md:hidden top-30 -left-full transition-all duration-500 ${Showmenu ? "left-1/2" : ""} transform -translate-x-1/2`}>
+          <ul className={`flex flex-col absolute items-center gap-16 shadow-[10px_20px_20px_rgba(0,0,0,0.35)] bg-orange-300/30 backdrop-blur-xl rounded-2xl p-10 font-semibold tracking-wider md:hidden top-30 -left-full transition-all duration-500 ${Showmenu ? "left-1/2" : ""} transform -translate-x-1/2`}>
             <li>
               <NavLink
                 to="/" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
@@ -90,8 +101,8 @@ const Navbar = () => {
             </li>
           
             <li>
-              <NavLink to="/about" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                About
+              <NavLink to="/category" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+                Category
               </NavLink>
             </li>
           
