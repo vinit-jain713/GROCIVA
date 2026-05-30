@@ -3,11 +3,12 @@ import FruitsCat from '../../assets/fruits-and-veggies.png'
 import SeaFoodCat from '../../assets/meat-and-seafood.png'
 import DairyCat from '../../assets/dairy-and-eggs.png'
 import Button from '../Button/Button'
+import Heading from '../Heading/Heading'
 
-const About = () => {
+const Category = () => {
   const RenderCard = category.map((card)=>{
     return(
-      <div className="flex-1 mx-10 md:m-0 basis-[300px] flex flex-col justify-between bg-gradient-to-t from-zinc-200 to-white shadow-[0_5px_25px_rgba(0,0,0,0.35)] rounded-xl p-6">
+      <div className="flex-1 mx-10 md:m-0 basis-[300px] flex flex-col justify-between bg-gradient-to-t from-zinc-200 to-white shadow-[0_5px_25px_rgba(0,0,0,0.35)] rounded-xl p-6" key={card.id}>
         <div>
           <img src={card.image}/>
         </div>
@@ -21,22 +22,21 @@ const About = () => {
   })
   return (
     <>
-      <div className='w-fit mx-auto md:pt-40 pt-30'>
+      <div className='w-fit mx-auto md:mt-10'>
         <div className='flex flex-col items-center'>
-          <h1 className='Category-Heading md:text-5xl text-3xl font-bold'>
-            <span className='text-orange-500'>Search</span> By Your Category
+          <h1>
+            <Heading highlight="Search" heading="By Your Category"/>
           </h1>
-          <div className='w-30 h-1 bg-orange-400 mt-3 ml-auto rounded-full'></div>
         </div>
       </div>
-        <div className='max-w-[1200px] mx-auto flex flex-wrap md:gap-20 gap-10 mt-15'>
+        <div className='max-w-[1200px] mx-auto flex flex-wrap md:gap-20 gap-10 mt-10'>
           {RenderCard}
         </div>
     </>
   )
 }
 
-export default About
+export default Category;
 
 const category = [
   {

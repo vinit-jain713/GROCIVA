@@ -28,7 +28,7 @@ const Navbar = () => {
   },[])
   return (
     <div className={`bg-white fixed top-0 left-0 right-0 ${isScroll ? 'shadow-xl' : ''}`}>
-      <nav className='flex justify-between max-w-[1200px] md:h-[22vh] h-[10vh] px-10 items-center mx-auto'>
+      <nav className='flex justify-between max-w-[1200px] md:h-[15vh] h-[10vh] px-10 items-center mx-auto'>
         {/* Logo Section */}
         <header>
           <NavLink to={"/"}>

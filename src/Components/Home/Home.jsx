@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import About from '../Category/Category'
+import Category from '../Category/Category'
 import Process from '../Process/Process'
 import Contact from '../Contact/Contact'
 import Hero from '../Hero/Hero'
-
+import Values from '../Values/Values'
 const HomePage = () => {
   return (
     <div>
@@ -19,6 +19,8 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
+      <Category />
+      <Values />
     </div>
   )
 }
