@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react';
+import { CartContext } from '../CartContext/CartContext';
 import { GoHeartFill } from "react-icons/go";
 import { RiShoppingBasketFill } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
@@ -7,25 +9,29 @@ import { IoMenu } from "react-icons/io5";
 import { CgMenuMotion } from "react-icons/cg";
 
 const Navbar = () => {
-
+  const { cartItems } = useContext(CartContext);
   const [Showmenu, SetShowmenu] = useState(false);
   const [isScroll, SetisScroll] = useState(false);
 
-  const toggleMenu = () =>{
+  const toggleMenu = () => {
 
     SetShowmenu(!Showmenu);
   }
 
-  useEffect(()=>{
+const closeMenu = () => {
+  SetShowmenu(false);
+};
 
-    const handleScroll = ()=>{
+  useEffect(() => {
+
+    const handleScroll = () => {
       SetisScroll(window.scrollY > 10)
     }
 
     window.addEventListener('scroll', handleScroll);
-    return ()=> window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
 
-  },[])
+  }, [])
   return (
     <div className={`bg-white fixed top-0 left-0 right-0 ${isScroll ? 'shadow-xl' : ''}`}>
       <nav className='flex justify-between max-w-[1200px] md:h-[15vh] h-[10vh] px-10 items-center mx-auto'>
@@ -43,28 +49,28 @@ const Navbar = () => {
           <ul>
             <li>
               <NavLink
-                to="/" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+                to="/" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
                 Home
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink to="/category" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Category
+              <NavLink to="/products" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+                Products
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink to="/process" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              <NavLink to="/process" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
                 Process
               </NavLink>
             </li>
           </ul>
           <ul>
             <li>
-              <NavLink to="/contact" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              <NavLink to="/contact" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
                 Contact-us
               </NavLink>
             </li>
@@ -82,48 +88,57 @@ const Navbar = () => {
           <NavLink to={'/'} className={'text-2xl text-red-400'}>
             <GoHeartFill />
           </NavLink>
-          <NavLink to={'/'} className={'text-2xl text-zinc-900'}>
+          <NavLink
+            to={'/cart'}
+            className='relative text-2xl text-zinc-900'
+          >
+
             <RiShoppingBasketFill />
+
+            <span className='absolute -top-2 -right-2 bg-orange-500 text-white h-5 w-5 rounded-full flex justify-center items-center text-xs'>
+              {cartItems.length}
+            </span>
+
           </NavLink>
           <NavLink onClick={toggleMenu} className={'text-zinc-800 text-3xl md:hidden'}>
-            {Showmenu?<CgMenuMotion /> : <IoMenu />}
+            {Showmenu ? <CgMenuMotion /> : <IoMenu />}
           </NavLink>
         </div>
 
         {/* Mobile Nav */}
 
-          <ul className={`flex flex-col absolute items-center gap-16 shadow-[10px_20px_20px_rgba(0,0,0,0.35)] bg-orange-300/30 backdrop-blur-xl rounded-2xl p-10 font-semibold tracking-wider md:hidden top-30 -left-full transition-all duration-500 ${Showmenu ? "left-1/2" : ""} transform -translate-x-1/2`}>
-            <li>
-              <NavLink
-                to="/" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Home
-              </NavLink>
-            </li>
-          
-            <li>
-              <NavLink to="/category" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Category
-              </NavLink>
-            </li>
-          
-            <li>
-              <NavLink to="/process" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Process
-              </NavLink>
-            </li>
-          
-            <li>
-              <NavLink to="/contact" className={({ isActive }) =>isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Contact-us
-              </NavLink>
-            </li>
-            <li className='flex p-2 border-2 rounded-3xl items-center border-black-700 md:hidden'>
+        <ul className={`flex flex-col absolute items-center gap-16 shadow-[10px_20px_20px_rgba(0,0,0,0.35)] bg-orange-300/30 backdrop-blur-xl rounded-2xl p-10 font-semibold tracking-wider md:hidden top-30 -left-full transition-all duration-500 ${Showmenu ? "left-1/2" : ""} transform -translate-x-1/2`}>
+          <li>
+            <NavLink
+              to="/" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              Home
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/products" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              Products
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/process" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              Process
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              Contact-us
+            </NavLink>
+          </li>
+          <li className='flex p-2 border-2 rounded-3xl items-center border-black-700 md:hidden'>
             <input type="text" name='text' id='text' placeholder='Search...' autoComplete='off' className='flex h-[3vh] px-3 focus:outline-none' />
             <button className='bg-gradient-to-b from-orange-600 to-orange-400 text-white h-8 w-8 flex justify-center items-center rounded-full text-sm'>
               <IoSearch />
             </button>
           </li>
-          </ul>
+        </ul>
       </nav>
     </div>
   )

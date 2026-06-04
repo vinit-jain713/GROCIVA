@@ -7,19 +7,14 @@ const Values = () => {
 
   const LeftValues = Value.slice(0, 2).map(item => {
     return (
-      <div
-        key={item.id}
-        className="flex md:flex-row-reverse flex-col items-center md:items-start gap-3"
-      >
+      <div key={item.id}className="flex md:flex-row-reverse flex-col items-center md:items-start gap-3">
         <span className="flex justify-center items-center w-12 h-12 rounded-full bg-gradient-to-b from-orange-300 to-orange-600 text-white text-xl shrink-0">
           {item.icon}
         </span>
-
         <div className="w-full text-center md:text-right">
           <h3 className="Values-Titles text-4xl md:text-5xl font-bold leading-none">
             {item.title}
           </h3>
-
           <p className="Values-Para text-sm text-zinc-600 leading-relaxed mt-1">
             {item.para}
           </p>
@@ -30,19 +25,14 @@ const Values = () => {
 
   const RightValues = Value.slice(2, 4).map(item => {
     return (
-      <div
-        key={item.id}
-        className="flex md:flex-row flex-col items-center md:items-start gap-3"
-      >
+      <div key={item.id} className="flex md:flex-row flex-col items-center md:items-start gap-3">
         <span className="flex justify-center items-center w-12 h-12 rounded-full bg-gradient-to-b from-orange-300 to-orange-600 text-white text-xl shrink-0">
           {item.icon}
         </span>
-
         <div className="w-full text-center md:text-left">
           <h3 className="Values-Titles text-4xl md:text-5xl font-bold leading-none">
             {item.title}
           </h3>
-
           <p className="Values-Para text-sm text-zinc-600 leading-relaxed mt-1">
             {item.para}
           </p>
@@ -52,10 +42,9 @@ const Values = () => {
   })
 
   return (
-    <section className="py-12 md:py-20 overflow-hidden">
+    <section className="py-12 md:py-30">
       <div className="max-w-[1200px] mx-auto px-4 md:px-6">
         <Heading highlight="Our" heading="Values" />
-
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 md:gap-4">
 
           {/* Left Values */}
@@ -65,11 +54,7 @@ const Values = () => {
 
           {/* Center Image */}
           <div className="order-1 md:order-2 flex justify-center">
-            <img
-              src={Basket}
-              alt="Basket"
-              className="w-[220px] sm:w-[280px] md:w-full max-w-full object-contain"
-            />
+            <img src={Basket} alt="Basket" className="w-[220px] sm:w-[280px] md:w-full max-w-full object-contain"/>
           </div>
 
           {/* Right Values */}

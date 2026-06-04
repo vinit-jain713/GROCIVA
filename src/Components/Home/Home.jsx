@@ -6,6 +6,8 @@ import Process from '../Process/Process'
 import Contact from '../Contact/Contact'
 import Hero from '../Hero/Hero'
 import Values from '../Values/Values'
+import HProducts from '../HProducts/HProducts'
+import Discount from '../Discount/Discount'
 const HomePage = () => {
   return (
     <div>
@@ -21,6 +23,8 @@ const Home = () => {
       <Hero />
       <Category />
       <Values />
+      {/* <HProducts /> */}
+      <Discount />
     </div>
   )
 }

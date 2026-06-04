@@ -6,6 +6,8 @@ import Category from './Components/Category/Category'
 import Process from './Components/Process/Process'
 import Contact from './Components/Contact/Contact'
 import Hero from './Components/Hero/Hero'
+import Products from './Components/Products/Products'
+import Cart from './Components/Cart/Cart';
 
 const App = () => {
   return (
@@ -15,9 +17,10 @@ const App = () => {
       <div>
       <Routes>
         <Route path='/' element={<Home /> } />
-        <Route path='/category' element={<Category />} />
+        <Route path='/products' element={<Products />} />
         <Route path='/process' element={<Process />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       </div>
     </BrowserRouter>

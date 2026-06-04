@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import FruitsCat from '../../assets/fruits-and-veggies.png'
 import SeaFoodCat from '../../assets/meat-and-seafood.png'
 import DairyCat from '../../assets/dairy-and-eggs.png'
@@ -6,6 +7,7 @@ import Button from '../Button/Button'
 import Heading from '../Heading/Heading'
 
 const Category = () => {
+  const navigate = useNavigate();
   const RenderCard = category.map((card)=>{
     return(
       <div className="flex-1 mx-10 md:m-0 basis-[300px] flex flex-col justify-between bg-gradient-to-t from-zinc-200 to-white shadow-[0_5px_25px_rgba(0,0,0,0.35)] rounded-xl p-6" key={card.id}>
@@ -15,14 +17,17 @@ const Category = () => {
         <div>
           <h3 className='font-bold text-3xl py-2'>{card.title}</h3>
           <p className='text-zinc-700 py-2'>{card.description}</p>
-          <Button content="See All"/>
+          <Button
+          content="See All"
+          onClick={() => navigate('/products')}
+          />
         </div>
       </div>
     )
   })
   return (
     <>
-      <div className='w-fit mx-auto md:mt-10'>
+      <div className='w-fit mx-auto md:mt-20'>
         <div className='flex flex-col items-center'>
           <h1>
             <Heading highlight="Search" heading="By Your Category"/>

@@ -1,7 +1,9 @@
 import React from 'react'
 import Grocery from '../../assets/grocery.png'
 import Button from '../Button/Button'
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
+    const navigate = useNavigate();
     return (
         <section>
             <div className='max-w-[1200px] min-h-screen mx-auto px-10 flex md:flex-row flex-col md:gap-20 items-center md:pt-20 pt-30'>
@@ -13,7 +15,7 @@ const Hero = () => {
                     <p className='text-zinc-600 text-lg mb-5 md:p-0 py-4'>
                         Fresh groceries sourced with care and delivered to your doorstep to make everyday shopping simple, fast, and healthy.
                     </p>
-                    <Button content={"Shop Now"}/>
+                    <Button onClick={() => navigate('/products')} content={"Shop Now"}/>
                 </div>
                 <div className='flex-1 md:pt-3'>
                     <img src={Grocery}/>
