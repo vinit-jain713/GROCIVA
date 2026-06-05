@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaLeaf, FaTruck, FaShoppingBasket, FaUsers } from 'react-icons/fa'
-const Process = () => {
+const About = () => {
   return (
       <section className="py-30 md:py-30 bg-zinc-50 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-5">
@@ -134,4 +134,4 @@ const Process = () => {
   )
 }
 
-export default Process
+export default About

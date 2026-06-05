@@ -19,7 +19,7 @@ const Products = () => {
 
   return (
     <section>
-      <div className='max-w-[1200px] mx-auto px-10 md:mt-30'>
+      <div className='max-w-[1200px] mx-auto px-10 mb-10 md:mt-30'>
         <Heading highlight="Our" heading="Products" />
 
         <div className='flex flex-wrap justify-center gap-7 mt-10'>

@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Category from '../Category/Category'
-import Process from '../Process/Process'
+import About from '../About/About'
 import Contact from '../Contact/Contact'
 import Hero from '../Hero/Hero'
 import Values from '../Values/Values'
-import HProducts from '../HProducts/HProducts'
 import Discount from '../Discount/Discount'
+import Testimonials from '../Testimonials/Testimonials'
+import Footer from '../Footer/Footer'
 const HomePage = () => {
   return (
     <div>
@@ -23,8 +24,8 @@ const Home = () => {
       <Hero />
       <Category />
       <Values />
-      {/* <HProducts /> */}
       <Discount />
+      <Testimonials />
     </div>
   )
 }

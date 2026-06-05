@@ -4,7 +4,7 @@ import FreashFruits from '../../assets/fresh-fruits.png'
 
 const Discount = () => {
   return (
-    <section className="py-8 md:py-12 px-4">
+    <section className="py-8 md:py-12 px-4 z-0">
       <div
         className="max-w-[1200px] mx-auto bg-zinc-100 rounded-3xl overflow-hidden bg-no-repeat bg-right bg-contain"
         style={{

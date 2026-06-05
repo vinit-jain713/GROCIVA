@@ -33,7 +33,7 @@ const closeMenu = () => {
 
   }, [])
   return (
-    <div className={`bg-white fixed top-0 left-0 right-0 ${isScroll ? 'shadow-xl' : ''}`}>
+    <div className={`bg-white fixed top-0 left-0 right-0 z-[999] ${isScroll ? 'shadow-xl' : ''}`}>
       <nav className='flex justify-between max-w-[1200px] md:h-[15vh] h-[10vh] px-10 items-center mx-auto'>
         {/* Logo Section */}
         <header>
@@ -63,8 +63,8 @@ const closeMenu = () => {
           </ul>
           <ul>
             <li>
-              <NavLink to="/process" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-                Process
+              <NavLink to="/about" className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+                About
               </NavLink>
             </li>
           </ul>
@@ -122,8 +122,8 @@ const closeMenu = () => {
           </li>
 
           <li>
-            <NavLink to="/process" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
-              Process
+            <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? "text-orange-500" : "text-black hover:text-orange-500 duration-300"}>
+              About
             </NavLink>
           </li>
 
