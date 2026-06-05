@@ -70,8 +70,6 @@ const Testimonials = () => {
             })
           }
         </Swiper>
-
-
       </div>
     </section>
   )
