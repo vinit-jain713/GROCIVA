@@ -18,7 +18,7 @@ const Card = ({ product }) => {
       </div>
       
       <div className='w-full h-50'>
-        <img src={product.image} className='w-full h-full object-contain' />
+        <img src={product.image} loading="lazy" className='w-full h-full object-contain' />
       </div>
 
       <div className='text-center'>

@@ -7,7 +7,7 @@ const About = () => {
 
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block bg-orange-100 text-orange-500 px-4 py-2 font-extrabold rounded-full font-medium text-2xl md:text-3xl">
+          <span className="inline-block bg-orange-100 text-orange-500 px-4 py-2 font-bold rounded-full text-2xl md:text-3xl">
             About Grociva
           </span>
 

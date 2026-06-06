@@ -46,7 +46,7 @@ const Cart = () => {
                 <div key={item.id} className="bg-zinc-100 p-4 md:p-5 rounded-xl mb-5 flex flex-col md:flex-row md:justify-between md:items-center gap-5">
                   {/* Product Info */}
                   <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5">
-                    <img src={item.image} alt={item.title} className="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    <img src={item.image} loading="lazy" alt={item.title} className="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
                     <div className="text-center sm:text-left">
                       <h2 className="font-bold text-lg">
                         {item.title}

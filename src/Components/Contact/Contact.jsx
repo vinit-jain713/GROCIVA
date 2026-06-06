@@ -8,7 +8,7 @@ const Contact = () => {
 
         {/* Heading */}
         <div className="text-center mb-14">
-          <span className="bg-orange-100 text-orange-500 px-4 py-2 rounded-full font-medium">
+          <span className="bg-orange-100 text-orange-500 px-4 py-2 rounded-full font-bold text-2xl md:text-3xl">
             Contact Us
           </span>
 
